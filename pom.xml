@@ -14,17 +14,28 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <camel.version>3.0.0-RC1</camel.version>
+    <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Spring Boot BOM -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- Camel BOM -->
       <dependency>
         <groupId>org.apache.camel</groupId>
-        <artifactId>camel-parent</artifactId>
-        <version>3.0.0-RC1</version>
-        <scope>import</scope>
+        <artifactId>camel-spring-boot-dependencies</artifactId>
+        <version>${camel.version}</version>
         <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
