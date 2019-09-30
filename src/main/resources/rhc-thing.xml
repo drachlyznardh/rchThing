@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext id="RHC-Thing" xmlns="http://camel.apache.org/schema/spring">
+        <route id="theThingsRoute">
+            <from uri="timer:thing?period={{rhc.timer.period}}"/>
+            <bean ref="thingProvider" method="provideThings"/>
+            <to uri="stream:out"/>
+        </route>
+    </camelContext>
+
+</beans>

@@ -9,14 +9,14 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <name>A Camel Route</name>
+  <name>A thing in Camel with Spring Boot</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <camel.version>3.0.0-RC1</camel.version>
-    <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
+    <camel.version>2.24.2</camel.version>
+    <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
   </properties>
 
   <dependencyManagement>
@@ -45,33 +45,48 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
+
+    <!-- Spring Boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-actuator</artifactId>
+    </dependency>
+
+    <!-- Camel -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-main</artifactId>
+      <artifactId>camel-stream-starter</artifactId>
     </dependency>
 
-    <!-- logging -->
+    <!-- test -->
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <scope>runtime</scope>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <!-- testing -->
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test</artifactId>
+      <artifactId>camel-test-spring</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -104,7 +119,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <mainClass>com.roundhousecode.gods.thing.MainApp</mainClass>
+          <mainClass>com.roundhousecode.gods.thing.Application</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>
