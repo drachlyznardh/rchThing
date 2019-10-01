@@ -1,5 +1,6 @@
 package com.roundhousecode.gods.thing;
 
+import com.roundhousecode.gods.thing.provider.NullThingProvider;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.NotifyBuilder;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
@@ -12,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(CamelSpringBootRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = {Application.class, NullThingProvider.class})
 public class MostBasicTest {
 
     @Autowired
