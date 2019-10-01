@@ -9,7 +9,15 @@
         <route id="theThingsRoute">
             <from uri="timer:thing?period={{rhc.thing.period}}"/>
             <bean ref="thingProvider" method="provideThings"/>
-            <to uri="stream:out"/>
+            <choice>
+                <when>
+                    <simple>${body} == null</simple>
+                    <log message="This thing is null and I'm going to ignore it" loggingLevel="WARN"/>
+                </when>
+                <otherwise>
+                    <to uri="stream:out"/>
+                </otherwise>
+            </choice>
         </route>
     </camelContext>
 
