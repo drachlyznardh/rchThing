@@ -18,7 +18,7 @@ public class NullThingProvider implements ThingProvider {
     @Override
     public List<Thing> provideThings() {
         List<Thing> list = new LinkedList<>();
-        IntStream.range(0, howManyThings).forEach(i -> list.add(null));
+        // IntStream.range(0, howManyThings).forEach(i -> list.add(null));
         return list;
     }
 }
