@@ -19,7 +19,7 @@ public class ValidatorMockTest {
     @Autowired
     private CamelContext context;
 
-    @Produce(uri = "simple:start")
+    @Produce(uri = "direct:start")
     private ProducerTemplate producer;
 
     @EndpointInject(uri = "mock:result")
