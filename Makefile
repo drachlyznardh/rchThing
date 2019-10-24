@@ -5,7 +5,7 @@ install:
 	@mvn install
 
 run:
-	@mvn exec:java
+	@mvn spring-boot:run
 
 test:
 	@mvn test

@@ -1,4 +1,4 @@
-package com.roundhousecode.gods.thing.provider;
+package com.roundhousecode.gods.thing.test.provider;
 
 import com.roundhousecode.gods.thing.Thing;
 import com.roundhousecode.gods.thing.ThingProvider;
@@ -7,9 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
 
-@Component("thingProvider")
 public class NullThingProvider implements ThingProvider {
 
     @Value("${rhc.thing.test.howManyThings:1}")
