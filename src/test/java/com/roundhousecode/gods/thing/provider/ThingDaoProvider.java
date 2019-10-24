@@ -1,5 +1,7 @@
-package com.roundhousecode.gods.thing;
+package com.roundhousecode.gods.thing.provider;
 
+import com.roundhousecode.gods.thing.Thing;
+import com.roundhousecode.gods.thing.ThingProvider;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;

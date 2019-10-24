@@ -1,4 +1,4 @@
-package com.roundhousecode.gods.thing;
+package com.roundhousecode.gods.thing.test;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
@@ -16,12 +16,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ValidatorMockTest {
 
     @Autowired
-    private CamelContext camelContext;
+    private CamelContext context;
 
-    @Produce(uri="simple:start")
+    @Produce(uri = "simple:start")
     private ProducerTemplate producer;
 
-    @EndpointInject(uri="mock:result")
+    @EndpointInject(uri = "mock:result")
     private MockEndpoint endpoint;
 
     @Test

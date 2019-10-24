@@ -1,5 +1,6 @@
-package com.roundhousecode.gods.thing;
+package com.roundhousecode.gods.thing.test;
 
+import com.roundhousecode.gods.thing.Application;
 import com.roundhousecode.gods.thing.provider.NullThingProvider;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.NotifyBuilder;
