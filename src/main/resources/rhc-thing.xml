@@ -5,8 +5,10 @@
          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <camelContext id="RHC-Thing" xmlns="http://camel.apache.org/schema/spring">
-        <route id="theThingsRoute">
+    <bean id="thingProvider" class="com.roundhousecode.gods.thing.bean.ThingDaoProvider"/>
+
+    <camelContext id="RHCThing" xmlns="http://camel.apache.org/schema/spring">
+        <route id="theThingsMainRoute">
             <from uri="timer:thing?period={{rhc.thing.period}}"/>
             <log message="Timer ticked"/>
             <bean ref="thingProvider" method="provideThings"/>
