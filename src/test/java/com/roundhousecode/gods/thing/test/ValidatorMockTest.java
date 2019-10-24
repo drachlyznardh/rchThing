@@ -29,9 +29,20 @@ public class ValidatorMockTest {
     public void test() throws InterruptedException {
 
         endpoint.expectedHeaderReceived("lol", false);
-
         producer.sendBodyAndHeader("this is a body", "lol", false);
-
         endpoint.assertIsSatisfied();
+    }
+
+    @Before
+    public void setup() throws Exception {
+        this.context.addRoutes(new RouteBuilder() {
+            @Override
+            public void configure() {
+                from(ValidatorMockTest.this.producer.getDefaultEndpoint().getEndpointUri())
+                        .id("validatorMockTestRoute")
+                        .process("thingValidator")
+                        .to(ValidatorMockTest.this.endpoint.getEndpointUri());
+            }
+        });
     }
 }

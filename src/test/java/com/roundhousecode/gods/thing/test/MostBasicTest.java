@@ -18,11 +18,11 @@ import java.util.concurrent.TimeUnit;
 public class MostBasicTest {
 
     @Autowired
-    private CamelContext camelContext;
+    private CamelContext context;
 
     @Test
-    public void mostBasicTest() throws Exception {
-        NotifyBuilder notify = new NotifyBuilder(camelContext).whenDone(1).create();
-        Assert.assertTrue(notify.matches(10, TimeUnit.SECONDS));
+    public void test() throws Exception {
+        NotifyBuilder notify = new NotifyBuilder(this.context).fromRoute("theThingsMainRoute").whenDone(0).create();
+        Assert.assertTrue(notify.matches(3, TimeUnit.SECONDS));
     }
 }
