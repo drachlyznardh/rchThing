@@ -14,7 +14,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(CamelSpringBootRunner.class)
-@SpringBootTest(classes = {Application.class, NullThingProvider.class})
+@SpringBootTest(classes = {
+        Application.class,
+        TestConfiguration.class,
+        NullThingProvider.class
+})
 public class MostBasicTest {
 
     @Autowired

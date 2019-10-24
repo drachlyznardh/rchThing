@@ -13,7 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 
 @RunWith(CamelSpringBootRunner.class)
-@SpringBootTest()
+@SpringBootTest(classes = {
+        Application.class
+})
 public class ValidatorMockTest {
 
     @Autowired
