@@ -1,4 +1,4 @@
-package com.roundhousecode.gods.thing.provider;
+package com.roundhousecode.gods.thing.bean;
 
 import com.roundhousecode.gods.thing.Thing;
 import com.roundhousecode.gods.thing.ThingProvider;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedList;
 import java.util.List;
 
-@Component("thingProvider")
+@Component
 public class ThingDaoProvider implements ThingProvider {
 
     public List<Thing> provideThings() {
