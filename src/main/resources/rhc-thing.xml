@@ -17,10 +17,8 @@
                     <log message="This thing is null and I'm going to ignore it" loggingLevel="WARN"/>
                     <stop/>
                 </when>
-                <otherwise>
-                    <to uri="stream:out"/>
-                </otherwise>
             </choice>
+            <to uri="stream:out"/>
         </route>
     </camelContext>
 
